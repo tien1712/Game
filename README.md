@@ -43,8 +43,9 @@ Button.
 Sau khi hoàn thành dự án game cuối kì trong học phần này, em học và tìm hiểu được nhiều kiến thức và kinh nghiệm về SDL2. tư duy Code, thuật toán, kĩ năng chỉnh sửa ảnh.
 Cách sử dụng thêm nhiều chức năng của Github
 
-- Các hướng phát triển trong tương lai:
+**- Các hướng phát triển trong tương lai:**
 
-Nâng cao kỹ năng photoshop để có đồ họa đẹp hơn cho game.
-Thêm chế độ nhiều người chơi.
-Mọi thắc mắc gửi về email: 22028180@vnu.edu.vn
+- Nâng cao kỹ năng photoshop để có đồ họa đẹp hơn cho game.
+- Thêm chế độ nhiều người chơi.
+
+***Mọi thắc mắc gửi về email: 22028180@vnu.edu.vn***
