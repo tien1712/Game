@@ -18,7 +18,7 @@ int arr[24] = {1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12};
 
 int tablevalue[8][6];
 
-const string game_title = "Animal Match";
+const string game_title = "Memory";
 
 const string background_path = "background.png";
 const string start_image_path = "start_image.png";
@@ -26,8 +26,8 @@ const string spritesheet_path = "spritesheet.png";
 const string game_win_path = "game_win_background.png";
 
 
-static Mix_Music* g_sound_music = NULL;
-static Mix_Chunk* g_chunk_click = NULL;
+static Mix_Music* g_sound_music = NULL; // mix_music nhạc chạy cả ctr
+static Mix_Chunk* g_chunk_click = NULL; // mix_chuck nhạc chạy trong th
 static Mix_Chunk* g_chunk_clicktrue = NULL;
 static Mix_Chunk* g_chunk_gamewin = NULL;
 
@@ -54,9 +54,9 @@ struct Cellpos {                        // vị trí của một ô
 	int col;
 };
 
-struct Graphic{
-    SDL_Window* window;
-    SDL_Renderer* renderer;
+struct Graphic{                         //đồ hoạ khai báo 
+    SDL_Window* window;                 // cửa sổ
+    SDL_Renderer* renderer;             // vẽ
     SDL_Texture* start_image;
     SDL_Texture* background;
     SDL_Texture* spritesheet;
@@ -69,11 +69,11 @@ struct Graphic{
 
 
 
-bool initGraphic(Graphic &g);
+bool initGraphic(Graphic &g);  // khởi tạo đồ hoạ
 
-bool initMusic();
+bool initMusic(); // khởi tạo âm nhạc
 
-bool initFont();
+bool initFont();   // khởi tạo chữ
 
 void destroyGraphic(Graphic &g);
 
@@ -83,7 +83,7 @@ void TableValue(int tablevalue[8][6]);
 
 void displayGame(const Graphic &graphic);
 
-SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path);
+SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path); // hàm toạ ảnh
 
 void ClickMouse(SDL_Event &event,Graphic &graphic);
 
@@ -152,10 +152,10 @@ void destroyGraphic(Graphic &g) {
 	SDL_Quit();
 }
 
-bool initMusic()
+bool initMusic() // done
 {
 
-    if(Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    if(Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) // tần số mẫu, định dạng mẫu, số kênh, kích thước buffer size vùng nhớ
     {
         return false;
     }
@@ -180,7 +180,7 @@ bool initGraphic(Graphic &g) {
         err("SDL could not initialize!");
         return false;
     }
-
+    // test xem hàm nào sai thì fix
     int imgFlags = IMG_INIT_PNG;    // Dùng SDL_Image để load ảnh png
     if (!(IMG_Init(imgFlags) & imgFlags)) {
         err("SDL_Image could not initialize!");
@@ -235,23 +235,24 @@ void initAnimalRects(vector<SDL_Rect> &rects)
 	}
 }
 
-void TableValue(int tablevalue[8][6])
+void TableValue(int tablevalue[8][6]) // done
 {
     srand(time(0));
     int cnt=0;
     random_shuffle(arr,arr+23);
-    for(int i=0;i<4;i++)
+    for(int i=0;i<4;i++){
         for(int j=0;j<6;j++)
         {
             tablevalue[i][j]=0;
         }
-
-    for(int i=4;i<8;i++)
-        for(int j=0;j<6;j++)
-            if(cnt<24)
-    {
-        tablevalue[i][j]=arr[cnt];
-        cnt++;
+    }
+    for(int i=4;i<8;i++){
+        for(int j=0;j<6;j++){
+            if(cnt<24){
+                tablevalue[i][j]=arr[cnt];
+                cnt++;
+            }
+        }
     }
 }
 
@@ -297,8 +298,8 @@ void displayGame(const Graphic &graphic) {
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 6; j++) {
 			SDL_Rect desRect = {
-				j*100+300,
-				i*100+100 ,
+				j*100+195,
+				i*100+120,
 				100,
 				100,
 			};
@@ -326,10 +327,10 @@ void ClickMouse (SDL_Event &event,Graphic &graphic) {
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         xm = event.button.x;
         ym = event.button.y;
-        if(xm >= 300 && xm <= 890 && ym >= 100 && ym <= 490)
+        if(xm >= 195 && xm <= 890 && ym >= 120 && ym <= 490)
         {
-            col1 = (xm-300)/100;
-            row1 = (ym-100)/100;
+            col1 = (xm-195)/100;
+            row1 = (ym-120)/100;
             if(choose[row1][col1] == false)
             {
                 open++;
@@ -380,7 +381,7 @@ void ClickMouse (SDL_Event &event,Graphic &graphic) {
 }
 
 
-bool GameWin (int tablevalue[4][6]) {
+bool GameWin (int tablevalue[4][6]) { //done
     int count = 0;
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 6; j++) {
