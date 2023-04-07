@@ -4,14 +4,12 @@
 #include<cstdlib>
 #include<vector>
 #include <stdio.h>
-
+#include<windows.h>
 #include<string>
-
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_mixer/SDL_mixer.h>
-#include <SDL2_ttf/SDL_ttf.h>
-
+#include<SDL.h>
+#include<SDL_image.h>
+#include<SDL_ttf.h>
+#include<SDL_mixer.h>
 
 using namespace std;
 #undef main
