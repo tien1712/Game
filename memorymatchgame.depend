@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1615388045 source:c:\users\thungan.desktop-l6n166u\desktop\game2\memorymatchgame\main.cpp
+	<algorithm>
+	<ctime>
+	<iostream>
+	<cstdlib>
+	<vector>
+	<stdio.h>
+	<windows.h>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
