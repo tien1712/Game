@@ -92,7 +92,7 @@ bool GameWin (int tablevalue[4][6]);
 void err(const string &m);
 
 
-int main()
+int main()   // phần main làm những j ạ
 {
     Graphic g;
     initGraphic(g);
@@ -123,7 +123,7 @@ int main()
     }
 }
 
-SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path)
+SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path) // hàm này ạ
 {
     SDL_Surface *surface = IMG_Load(path.c_str());
     if (surface == NULL)
@@ -152,7 +152,7 @@ void destroyGraphic(Graphic &g) {
 	SDL_Quit();
 }
 
-bool initMusic() // done
+bool initMusic() // done hàm load âm thanh và mở
 {
 
     if(Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) // tần số mẫu, định dạng mẫu, số kênh, kích thước buffer size vùng nhớ
@@ -169,7 +169,7 @@ bool initMusic() // done
     }
 }
 
-bool initGraphic(Graphic &g) {
+bool initGraphic(Graphic &g) {  
     g.window = NULL;
     g.renderer = NULL;
     g.background = NULL;
@@ -256,7 +256,7 @@ void TableValue(int tablevalue[8][6]) // done
     }
 }
 
-SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) {
+SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) { // hàm này ạ
 	switch (tablevalue[pos.row][pos.col]) {
 	case 0:
 		return AnimalRects[animal_hidden];
@@ -289,7 +289,7 @@ SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) 
 	}
 }
 
-void displayGame(const Graphic &graphic) {
+void displayGame(const Graphic &graphic) { // cái hàm này ạ
 	SDL_RenderClear(graphic.renderer);
 
 	SDL_Rect desRect = { 0,0,1000,600 };
@@ -321,7 +321,7 @@ void displayGame(const Graphic &graphic) {
 static bool choose[4][6];
 static int similar[2];
 int open = 0;
-void ClickMouse (SDL_Event &event,Graphic &graphic) {
+void ClickMouse (SDL_Event &event,Graphic &graphic) { // cái hàm này ạ
     int xm, ym;
     int row1, col1;// row2, col2;
     if (event.type == SDL_MOUSEBUTTONDOWN) {
