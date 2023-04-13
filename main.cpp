@@ -123,7 +123,7 @@ int main()
     }
 }
 
-SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path) // hàm này ạ
+SDL_Texture* createTexture(SDL_Renderer *renderer, const string &path) 
 {
     SDL_Surface *surface = IMG_Load(path.c_str());
     if (surface == NULL)
