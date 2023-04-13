@@ -92,7 +92,7 @@ bool GameWin (int tablevalue[4][6]);
 void err(const string &m);
 
 
-int main()   // phần main làm những j ạ
+int main()   
 {
     Graphic g;
     initGraphic(g);
@@ -256,7 +256,7 @@ void TableValue(int tablevalue[8][6]) // done
     }
 }
 
-SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) { // hàm này ạ
+SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) { 
 	switch (tablevalue[pos.row][pos.col]) {
 	case 0:
 		return AnimalRects[animal_hidden];
@@ -289,7 +289,7 @@ SDL_Rect getAnimalRects(const Cellpos &pos,const vector<SDL_Rect> &AnimalRects) 
 	}
 }
 
-void displayGame(const Graphic &graphic) { // cái hàm này ạ
+void displayGame(const Graphic &graphic) { 
 	SDL_RenderClear(graphic.renderer);
 
 	SDL_Rect desRect = { 0,0,1000,600 };
@@ -321,16 +321,16 @@ void displayGame(const Graphic &graphic) { // cái hàm này ạ
 static bool choose[4][6];
 static int similar[2];
 int open = 0;
-void ClickMouse (SDL_Event &event,Graphic &graphic) { // cái hàm này ạ
+void ClickMouse (SDL_Event &event,Graphic &graphic) { 
     int xm, ym;
     int row1, col1;// row2, col2;
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         xm = event.button.x;
         ym = event.button.y;
-        if(xm >= 195 && xm <= 890 && ym >= 120 && ym <= 490)
+        if(xm >= 195 && xm <= 785 && ym >= 120 && ym <= 510)
         {
-            col1 = (xm-195)/100;
-            row1 = (ym-120)/100;
+            col1 = (xm-195)/100; // cột
+            row1 = (ym-120)/100; // hàm
             if(choose[row1][col1] == false)
             {
                 open++;
